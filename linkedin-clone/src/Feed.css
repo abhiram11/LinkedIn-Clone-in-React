@@ -1,0 +1,7 @@
+.feed {
+    flex:0.4;
+    justify-content: space-evenly;
+    border-bottom: 0.1px solid lightgray;
+
+    /* box-shadow: 1 1 1 1; */
+}
