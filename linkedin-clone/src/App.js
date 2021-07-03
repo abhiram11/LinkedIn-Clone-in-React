@@ -12,6 +12,10 @@ import Widgets from "./Widgets";
 //1:09:21 using FUNCTIONS instead of REUSABLE COMPONENTS .. !!! Takes in arguements, and returns values!
 //1:16:30 using "form" so that as we press Enter it submits (?), We also hide the "Send" button
 //1:20:30 a form submitted refreshes the page..!!!
+//1:27:45 sonny's dad from kenya nice to know haha
+//1:28:00 POSTS begin!!!!
+//1:33:40 handle large texts in p tag or others using overflow-wrap: anywhere;
+//1:35:00 ****!!!REUSE THE INPUT OPTION (PHOTO VIDEO EVENT ARTICLE) for LIKE COMMENT SHARE ETC as WELL!!!!!
 
 function App() {
   return (
