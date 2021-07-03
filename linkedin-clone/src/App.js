@@ -10,6 +10,8 @@ import Widgets from "./Widgets";
 //00:43:00 justify-content:space-evenly will push the content in the middle
 //00:44:00 stick the header on top. position:sticky, top:0, the z-index: 999 is the vertical STACKING order of elements!
 //1:09:21 using FUNCTIONS instead of REUSABLE COMPONENTS .. !!! Takes in arguements, and returns values!
+//1:16:30 using "form" so that as we press Enter it submits (?), We also hide the "Send" button
+//1:20:30 a form submitted refreshes the page..!!!
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
       {/* App Body  */}
       <div className="app__body">
         {/* Sidebar  */}
-        <Sidebar />
+        {/* <Sidebar /> */}
         {/* Feed */}
         <Feed />
         {/* Widgets */}
