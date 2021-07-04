@@ -25,6 +25,10 @@ import Widgets from "./Widgets";
 // adding a timestamp as well, and that timestamp is from firestore server itself! so same for all
 // 1:52:45 how DESTRUCTURING is done, posts.map(posts) se posts.map({ id, data : {x,y,z}})
 // 1:53:00 why we MUST add a key/index to each POST in the list, so that re rendering is done only on the new/unique one!
+// 1:59:00 REDUX >>>>> PROP DRILLING when props are used at different places, get hard to maintain
+// 2:02:00 recheck at code
+// 2:06:00 different slice of state for different purposes!!! REREAD THIS!
+// 2:07:30 when we first make user, we DISPATCH an action to change the user!
 
 function App() {
   return (
