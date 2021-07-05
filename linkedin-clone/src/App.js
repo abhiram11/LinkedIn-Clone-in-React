@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
+import { login, logout, selectUser } from "./features/userSlice";
 import Feed from "./Feed";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Widgets from "./Widgets";
+import Login from "./Login";
+import { auth } from "./firebase";
 
 //00:22:00 left and right sections for the container
 //00:35:00 using props to make reusable components
@@ -29,8 +33,38 @@ import Widgets from "./Widgets";
 // 2:02:00 recheck at code
 // 2:06:00 different slice of state for different purposes!!! REREAD THIS!
 // 2:07:30 when we first make user, we DISPATCH an action to change the user!
+// 2:10:20 useSelector is a hook from redux!
+// 2:26:00 firebase is for backend....
 
 function App() {
+  // PULL the user from the data store using selector
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  //to restrict logout when the app loads/refreshes...
+  //actually we are logged in but we are shown as loggedout at refresh
+  useEffect(() => {
+    //listens to any auth change
+    auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        //user is logged in
+        dispatch(
+          login({
+            // we are settings the email, uid, displayname, photourl in redux store
+            // and setting them to the rhs
+            email: userAuth.email,
+            uid: userAuth.uid,
+            displayName: userAuth.displayName,
+            photoUrl: userAuth.photoUrl,
+          })
+        );
+      } else {
+        //user logged out
+        dispatch(logout());
+      }
+    });
+  });
+
   return (
     <div className="app">
       {/* <h1>Let's build a LinkedIn Clone!</h1> */}
@@ -38,15 +72,18 @@ function App() {
 
       <Header />
 
-      {/* App Body  */}
-      <div className="app__body">
-        {/* Sidebar  */}
-        {/* <Sidebar /> */}
-        {/* Feed */}
-        <Feed />
-        {/* Widgets */}
-        <Widgets />
-      </div>
+      {!user ? (
+        <Login />
+      ) : (
+        <div className="app__body">
+          {/* Sidebar  */}
+          {/* <Sidebar /> */}
+          {/* Feed */}
+          {/* <Feed /> */}
+          {/* Widgets */}
+          <Widgets />
+        </div>
+      )}
     </div>
   );
 }
