@@ -40,6 +40,9 @@ import { auth } from "./firebase";
 // 2:52:30 using react FLIP MOVE to have animations~~
 // 2:53:30 using ForwardRef in React! these libs need a reference to the object that we want animated in
 // wrap the child component <Post> inside the forwardRef!!!!
+// 2:58:00 HOW TO SELL YOURSELF in a formal way!!!
+// 2:59:00 sonny says he punjabi lol nice xD
+// 3:06:40 setting up and deploying to firebase!
 
 function App() {
   // PULL the user from the data store using selector
@@ -82,9 +85,9 @@ function App() {
       ) : (
         <div className="app__body">
           {/* Sidebar!!!!!!! CHANGE ITS POSIITON TO STICKY  */}
-          <Sidebar />
+          {/* <Sidebar /> */}
           {/* Feed */}
-          <Feed />
+          {/* <Feed /> */}
           {/* Widgets */}
           <Widgets />
         </div>
