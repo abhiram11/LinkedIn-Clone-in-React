@@ -37,6 +37,9 @@ import { auth } from "./firebase";
 // 2:26:00 firebase is for backend....
 // 2:41:40 catch(error.message) hota hai, but firebase gives error back in catch(error) itself
 // 2:43:20 react has TREE SHAKING so it installs only the bits you need, removes what dont need
+// 2:52:30 using react FLIP MOVE to have animations~~
+// 2:53:30 using ForwardRef in React! these libs need a reference to the object that we want animated in
+// wrap the child component <Post> inside the forwardRef!!!!
 
 function App() {
   // PULL the user from the data store using selector
