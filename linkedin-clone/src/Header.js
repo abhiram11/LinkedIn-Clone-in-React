@@ -9,8 +9,18 @@ import ChatIcon from "@material-ui/icons/Chat";
 import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 
 import HeaderOption from "./HeaderOption";
+import { useDispatch } from "react-redux";
+import { logout } from "./features/userSlice";
+import { auth } from "./firebase";
 
 function Header() {
+  const dispatch = useDispatch();
+
+  const logoutOfApp = () => {
+    dispatch(logout());
+    auth.signOut();
+  };
+
   return (
     <div className="header">
       {/* <h1> this is header!</h1> */}
@@ -40,10 +50,7 @@ function Header() {
         />
 
         {/* Avatar */}
-        <HeaderOption
-          avatar="https://lh3.googleusercontent.com/ogw/ADea4I5HL-IsHBtXW7Nh26jwXrnRbwmfay3pbLZCqNKRGQ=s32-c-mo"
-          title="Me"
-        />
+        <HeaderOption avatar={true} title="Me" onClick={logoutOfApp} />
       </div>
     </div>
   );

@@ -12,8 +12,23 @@ function Login() {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
-  const loginToApp = () => {
+  const loginToApp = (e) => {
     // import authentication module prepared earlier in firebase file
+
+    e.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userAuth) => {
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+            profilePic: userAuth.user.photoURL,
+          })
+        );
+      })
+      .catch((error) => alert(error));
   };
 
   const register = (e) => {
@@ -63,13 +78,13 @@ function Login() {
           type="text"
           placeholder="Full Name (Required if registering)"
           value={name}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
         <input
           type="text"
           placeholder="Profile Picture URL (Optional)"
           value={profilePic}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setProfilePic(e.target.value)}
         />
         <input
           type="email"
@@ -81,7 +96,7 @@ function Login() {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <button type="submit" onClick={loginToApp}>

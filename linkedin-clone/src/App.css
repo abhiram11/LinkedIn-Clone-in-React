@@ -13,6 +13,11 @@
   align-items: center;
 }
 
-/* .app_body {
+.app_body {
   display: flex;
-} */
+  margin-top: 35px;
+  /* seems very important!  */
+  max-width: 1200px;
+  margin-left: 20px;
+  margin-right: 20px;
+}

@@ -35,6 +35,8 @@ import { auth } from "./firebase";
 // 2:07:30 when we first make user, we DISPATCH an action to change the user!
 // 2:10:20 useSelector is a hook from redux!
 // 2:26:00 firebase is for backend....
+// 2:41:40 catch(error.message) hota hai, but firebase gives error back in catch(error) itself
+// 2:43:20 react has TREE SHAKING so it installs only the bits you need, removes what dont need
 
 function App() {
   // PULL the user from the data store using selector
@@ -76,10 +78,10 @@ function App() {
         <Login />
       ) : (
         <div className="app__body">
-          {/* Sidebar  */}
-          {/* <Sidebar /> */}
+          {/* Sidebar!!!!!!! CHANGE ITS POSIITON TO STICKY  */}
+          <Sidebar />
           {/* Feed */}
-          {/* <Feed /> */}
+          <Feed />
           {/* Widgets */}
           <Widgets />
         </div>
