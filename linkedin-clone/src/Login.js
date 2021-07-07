@@ -31,9 +31,9 @@ function Login() {
       .catch((error) => alert(error));
   };
 
-  const register = (e) => {
+  const register = () => {
     // console.log("You clicked to register!");
-    e.preventDefault();
+    // e.preventDefault();
     // if there is no name
     if (!name) {
       return alert("Please enter a full name!");
@@ -44,12 +44,15 @@ function Login() {
       .then((userAuth) => {
         // go into the user and update the user now
         userAuth.user
-          .updateProfile({
-            // there variable names at LHS shouldnt be change since they are keys to the firebase
-            // rhs are local names, in tutorial Url is URL at firebase, and local variable is Url, we have Url at fb now
-            displayName: name,
-            photoUrl: profilePic,
-          })
+          .updateProfile(
+            {
+              // there variable names at LHS shouldnt be change since they are keys to the firebase
+              // rhs are local names, in tutorial Url is URL at firebase, and local variable is Url, we have Url at fb now
+              displayName: name,
+              photoUrl: profilePic,
+            }
+            //registration done!!!!!!!!!!!!!!!! NOW SAME AS LOGIN!
+          )
           .then(() => {
             // push the user (dispatch) into the redux user store
             dispatch(
@@ -105,9 +108,9 @@ function Login() {
       </form>
 
       <p>
-        Not a member?{" "}
+        Not a member? Fill the form above and{" "}
         <span className="login__register" onClick={register}>
-          Register Now{" "}
+          Register Here{" "}
         </span>
       </p>
     </div>

@@ -85,9 +85,9 @@ function App() {
       ) : (
         <div className="app__body">
           {/* Sidebar!!!!!!! CHANGE ITS POSIITON TO STICKY  */}
-          {/* <Sidebar /> */}
+          <Sidebar />
           {/* Feed */}
-          {/* <Feed /> */}
+          <Feed />
           {/* Widgets */}
           <Widgets />
         </div>
