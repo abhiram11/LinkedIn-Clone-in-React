@@ -1,0 +1,13 @@
+.response {
+  display: flex;
+  margin-right: 20px;
+  color: gray;
+  cursor: pointer;
+}
+.response:hover {
+  color: black;
+}
+
+.response__icon {
+  margin-right: 5px !important;
+}

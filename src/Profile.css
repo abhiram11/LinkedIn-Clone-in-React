@@ -1,0 +1,9 @@
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile__avatar {
+  margin-right: 5px;
+}

@@ -1,0 +1,61 @@
+/* .feed {
+    flex:0.4;
+    justify-content: space-evenly;
+    border-bottom: 0.1px solid lightgray;
+
+    box-shadow: 1 1 1 1;
+} */
+
+.feed {
+  /* height: 100px; */
+  flex: 0.6;
+  /* width: ; */
+  margin: 10px;
+  /* border-bottom: 1px solid gray; */
+}
+
+.feed__top {
+  background-color: white;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.feed__post {
+  display: flex;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  align-items: center;
+  background-color: white;
+
+  /* justify-content: center; */
+  /* margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px; */
+}
+
+.feed__post > input {
+  margin: 10px 5px;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.feed__createIcon {
+  /* font-size: 18px; */
+  margin-left: 10px;
+  color: gray !important;
+}
+
+.feed__divider {
+  margin: 10px 0px;
+  border-bottom: 1px solid lightgray;
+}
+
+.feed__select {
+  margin: 15px;
+  color: gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

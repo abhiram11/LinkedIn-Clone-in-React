@@ -9,12 +9,13 @@ import ChatIcon from "@material-ui/icons/Chat";
 import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 
 import HeaderOption from "./HeaderOption";
-import { useDispatch } from "react-redux";
-import { logout } from "./features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "./features/userSlice";
 import { auth } from "./firebase";
 
 function Header() {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   const logoutOfApp = () => {
     dispatch(logout());
@@ -49,7 +50,12 @@ function Header() {
         />
 
         {/* Avatar */}
-        <HeaderOption avatar={true} title="Me" onClick={logoutOfApp} />
+        {/* if user logged in, click to logout */}
+        <HeaderOption
+          avatar={true}
+          title={user ? "Me (Click to Logout)" : "Me"}
+          onClick={logoutOfApp}
+        />
       </div>
     </div>
   );

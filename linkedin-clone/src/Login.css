@@ -47,3 +47,14 @@
 .login > p {
   margin-top: 20px;
 }
+
+.login__disclaimer > h4 {
+  text-align: center;
+  max-width: 365px;
+  margin-top: 40px;
+}
+
+.login__disclaimer > h5 {
+  margin-top: 20px;
+  max-width: 400px;
+}

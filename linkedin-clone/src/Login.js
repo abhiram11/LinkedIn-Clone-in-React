@@ -12,33 +12,13 @@ function Login() {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
-  const loginToApp = (e) => {
-    // import authentication module prepared earlier in firebase file
-
-    e.preventDefault();
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((userAuth) => {
-        dispatch(
-          login({
-            email: userAuth.user.email,
-            uid: userAuth.user.uid,
-            displayName: userAuth.user.displayName,
-            profilePic: userAuth.user.photoURL,
-          })
-        );
-      })
-      .catch((error) => alert(error));
-  };
-
-  const register = () => {
+  const register = (e) => {
     // console.log("You clicked to register!");
     // e.preventDefault();
     // if there is no name
     if (!name) {
       return alert("Please enter a full name!");
     }
-
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userAuth) => {
@@ -64,6 +44,24 @@ function Login() {
               })
             );
           });
+      })
+      .catch((error) => alert(error));
+  };
+  const loginToApp = (e) => {
+    // import authentication module prepared earlier in firebase file
+
+    e.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userAuth) => {
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+            photoUrl: userAuth.user.photoUrl,
+          })
+        );
       })
       .catch((error) => alert(error));
   };
@@ -113,6 +111,15 @@ function Login() {
           Register Here{" "}
         </span>
       </p>
+
+      <div className="login__disclaimer">
+        <h4>
+          P.S.: If the page becomes unresponsive after clicking on Sign In/
+          Register options, wait for some time and refresh the page. If you are
+          a registered user, enter email and password only.
+        </h4>
+        <h5>(Dummy email: abhiclone@gmail.com password: abcd1234)</h5>
+      </div>
     </div>
   );
 }

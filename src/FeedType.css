@@ -1,0 +1,8 @@
+.feedType {
+  display: flex;
+  cursor: pointer;
+}
+
+.feedType__icon {
+  margin-right: 2px;
+}

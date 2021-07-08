@@ -1,4 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit"; //{ createAsyncThunk,
+import { createSlice } from "@reduxjs/toolkit";
+
+//{ createAsyncThunk,
 // import { fetchCount } from "./counterAPI";
 
 // const initialState = {
@@ -13,8 +15,8 @@ export const userSlice = createSlice({
   },
   reducers: {
     login: (state, action) => {
-      //state means the actual state of the current slice, here user slice
       state.user = action.payload; //payload = just object that we pass along with action
+      //state means the actual state of the current slice, here user slice
     },
     logout: (state) => {
       state.user = null;
