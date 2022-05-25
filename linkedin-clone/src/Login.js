@@ -47,13 +47,13 @@ function Login() {
       })
       .catch((error) => alert(error));
   };
-  const loginToApp = (e) => {
+  const loginToApp = async (e) => {
     // import authentication module prepared earlier in firebase file
-
     e.preventDefault();
-    auth
+    await auth
       .signInWithEmailAndPassword(email, password)
       .then((userAuth) => {
+        console.log("Dispatching login action...");
         dispatch(
           login({
             email: userAuth.user.email,
@@ -62,6 +62,7 @@ function Login() {
             photoUrl: userAuth.user.photoUrl,
           })
         );
+        console.log("Login Dispatched...");
       })
       .catch((error) => alert(error));
   };
